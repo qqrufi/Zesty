@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя перша HTML сторінка</title>
+    <style>
+        /* Встановлення стилів для контейнера */
+        .container {
+            max-width: 980px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Стилі для доданих блоків */
+        .blocks-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            margin-bottom: 20px;
+        }
+
+        .blocks-container > div:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .small-block {
+            flex: 0 0 10%;
+            height: 70px;
+            overflow: hidden;
+            background-image: url(https://www.volynnews.com/files/news/2016/10-11/203078/kittt.jpg);
+            background-size: cover;
+        }
+
+        .medium-block {
+            flex: 0 0 38%;
+            height: 70px;
+            background-color:   #808080;
+            box-sizing: border-box;
+        }
+
+        .long-block {
+            flex: 0 0 50%;
+            height: 70px;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5px;
+            font-size: 12px;
+            box-sizing: border-box;
+            background-color:  #808080;
+            max-width: 40%;
+        }
+
+        .long-block p {
+            margin: 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .underline {
+            border-bottom: 2px solid black;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .main-content-container {
+            margin-bottom: 20px;
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+
+        .list-container {
+            width: 21%;
+            padding: 10px;
+            border: 1px solid lightgray;
+            box-sizing: border-box;
+            background-color:  #808080;
+            height: 250px; /* Встановлення висоти */
+        }
+
+        .list-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-container li {
+            margin-bottom: 3px;
+            font-size: 13px; /* Змініть значення на бажаний розмір */
+        }
+
+        .text-block-container {
+            width: 75%;
+        }
+
+        .text-block {
+            padding: 10px;
+            border: 1px solid lightgray;
+            box-sizing: border-box;
+            background-color: lightgray;
+            height: 150px; /* Встановлення висоти, яка відрізняється від .list-container */
+            font-size: 14px;
+            margin-bottom: 10px; /* Невеликий відступ від .text-block */
+        }
+
+        .image-row {
+            display: flex;
+            margin-bottom: 10px; /* Невеликий відступ між рядами */
+            justify-content: flex-start; /* Забезпечує відсутність розтягування */
+        }
+
+        .image-row img {
+            width: 139px; /* Задаємо однакову ширину для всіх картинок */
+            height: 165px; /* Задаємо однакову висоту для всіх картинок */
+        }
+
+        .image-row img:not(:last-child) {
+            margin-right: 10px;
+            justify-content: flex-start; /* Забезпечує відсутність розтягування */
+        }
+
+        .text-under-images {
+            display: flex; /* Встановлюємо флекс-контейнер */
+            justify-content: space-between; /* Розподіл простору між блоками */
+            gap: 10px; /* Проміжок між блоками */
+            margin-top: 10px; /* Відступ зверху */
+        }
+
+        .text-block-left, .text-block-right {
+            width: 49%; /* Ширина кожного блоку */
+            padding: 10px; /* Внутрішні відступи */
+            border: 1px solid lightgray; /* Межа */
+            background-color: lightgray; /* Фон */
+            box-sizing: border-box; /* Врахування відступів у розмірах */
+        }
+
+        .text-block-left {
+            margin-right: 1%; /* Відступ справа */
+        }
+
+        .text-block-right {
+            margin-left: 1%; /* Відступ зліва */
+        }
+
+.four-rectangles-container {
+    display: flex;
+    margin-top: 10px; /* Відступ від верху */
+    margin-left: 5px;
+    background-color: #f0f0f0; /* Колір контейнера */
+    padding: 10px; /* Внутрішній відступ */
+}
+
+.rectangle-horizontal {
+    width: 300px;
+    height: 200px;
+    background-color: #808080;
+    margin-right: 30px; /* Відступ між прямокутниками */
+    display: grid; /* Використання CSS Grid для створення двох стовпців */
+    grid-template-columns: 1fr 1fr; /* Два стовпці однакової ширини */
+    padding-left: 25px;
+    box-sizing: border-box; /* Розрахунок розміру елемента, включаючи padding і border */
+}
+
+.two-column-list {
+    list-style-type: none; /* Видалення маркерів списку */
+    padding: 0; /* Видалення відступів списку */
+    margin: 0; /* Видалення зовнішніх відступів списку */
+    padding-top: 12px; /* Внутрішній верхній відступ */
+    margin-right: 30px; /* Зміщення списку праворуч */
+    color: white;
+}
+
+.two-column-list li {
+    margin: 5px 0; /* Відступи між елементами списку */
+}
+
+
+.vertical-rectangles {
+    display: flex;
+    flex-direction: column; /* Розміщення прямикутників вертикально */
+    justify-content: space-between; /* Рівномірний розподіл простору між прямокутниками */
+}
+
+.rectangle-vertical {
+    width: 300px;
+    height: 85px;
+    background-color: #808080;
+    margin-bottom: 30px; /* Відступ між вертикальними прямокутниками */
+}
+
+.rectangle-vertical:last-child {
+    margin-bottom: 0; /* Видалення відступу у останнього вертикального прямокутника */
+}
+
+.rectangle-horizontal    {
+    width: 300px;
+    height: 200px;
+    background-color: #808080;
+    margin-right: 30px; /* Відступ між прямокутниками */
+    padding-left: 25px;
+    box-sizing: border-box; /* Розрахунок розміру елемента, включаючи padding і border */
+}
+
+.list-kk {
+    list-style-type: square; /* Встановлення квадратних маркерів */
+    color: white;
+    font-size: 14.5px;
+    padding-top: 2px; /* Внутрішній верхній відступ */
+    padding-left: 20px; /* Відступ від лівого краю */
+}
+
+.list-kk li {
+    margin-bottom: 7px; /* Відстань між елементами списку */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="blocks-container">
+            <div class="small-block"></div>
+
+            <div class="medium-block"></div>
+            <div class="long-block">
+                <p>+380 (096) 346-2131</p>
+                <p>manacer@gmail.com</p>
+                <p>www.pixelplus.com</p>
+            </div>
+        </div>
+        <div class="underline"></div>
+        <div class="main-content-container">
+            <div class="content-container">
+                <div class="list-container">
+                    <ul>
+                        <li>Створення сайтів</li>
+                        <li>Виготовлення сайтів «під ключ»</li>
+                        <li>Інтеграція з 1С</li>
+                        <li>Підтримка сайтів</li>
+                        <li>Створення сайтів на Бітрікс</li>
+                        <li>Модулі Бітрікс</li>
+                        <li>Купити Бітрікс</li>
+                        <li>Дизайн сайтів</li>
+                        <li>Редизайн сайтів</li>
+                        <li>Інтернет магазини</li>
+                        <li>Створення логотипів</li>
+                    </ul>
+                </div>
+                <div class="text-block-container">
+                    <div class="text-block">
+                        PSD-файл з макетом. Макет розбитий по шарах і згрупований по папках:
+                        <ul>
+                            <li>number - нумерація блоків (номери блоків верстати не потрібно)</li>
+                            <li>text - текстові блоки (шрифт Arial, розмір 14 пікселів, міжрядкове відстань 22 пікселя)</li>
+                            <li>head - шапка сайту</li>
+                            <li>content - контентна область, яка у свою чергу ділиться на left та center</li>
+                        </ul>
+                        Текстовий опис завдання та вимоги.
+                    </div>
+                    <div class="image-row">
+                        <img src="https://via.placeholder.com/140x165" alt="Image 1">
+                        <img src="https://via.placeholder.com/140x165" alt="Image 2">
+                        <img src="https://via.placeholder.com/140x165" alt="Image 3">
+                        <img src="https://via.placeholder.com/140x165" alt="Image 4">
+                        <img src="https://via.placeholder.com/140x165" alt="Image 5">
+                    </div>
+                    <div class="image-row">
+                        <img src="https://via.placeholder.com/140x165" alt="Image 6">
+                        <img src="https://via.placeholder.com/140x165" alt="Image 7">
+                    </div>
+                    <div class="text-under-images">
+                        <div class="text-block-left">
+                            <p>Студія «Піксель Плюс» розробить повнофункціональний продукт орієнтований на цільову аудиторію та ефективно вирішує поставлені перед ним маркетингові завдання..</p>
+                            <p>Досвід робіт та використання власних технологій дозволяє пропонувати послугу виготовлення сайту в Києві в розумні терміни.</p>
+                        </div>
+                        <div class="text-block-right">
+                            <p>Пошукове просування (розкрутка) ведеться за комерційними запитами, що дозволяє багаторазово збільшити кількість продажів із сайту за розумного рекламного бюджету.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="underline"></div>
+            <div class="four-rectangles-container"> <!-- Контейнер для чотирьох нових боксів -->
+                <div class="rectangle-horizontal">
+                    <ul class="two-column-list">
+                        <li>Пункт 1</li>
+                        <li>Пункт 2</li>
+                        <li>Пункт 3</li>
+                        <li>Пункт 4</li>
+                        <li>Пункт 5</li>
+                        <li>Пункт 6</li>
+                        <li>Пункт 7</li>
+                    </ul>
+                    <ul class="two-column-list">
+                        <li>Пункт 8</li>
+                        <li>Пункт 9</li>
+                        <li>Пункт 10</li>
+                        <li>Пункт 11</li>
+                        <li>Пункт 12</li>
+                        <li>Пункт 13</li>
+                        <li>Пункт 14</li>
+                    </ul>
+                </div>
+                <div class="rectangle-horizontal">
+                    <ul class="list-kk">
+                        <li>Пошукове просування сайтів</li>
+                        <li>Тариф «Старт»</li>
+                        <li>Тариф «Просування Плюс»</li>
+                        <li>Тариф «Інтернет-магазин»</li>
+                        <li>Тариф «Ексклюзив»</li>
+                        <li>Тариф «Контент + SEO»</li>
+                        <li>Тариф «Регіон»</li>
+                    </ul>
+                </div>
+                <div class="imager-last">
+                    <img src="https://via.placeholder.com/280x92" alt="Image 1" style="display: block; margin-bottom: 10px;">
+                    <img src="https://via.placeholder.com/280x92" alt="Image 2">
+                </div>
+            </div>
+</body>
+</html>
